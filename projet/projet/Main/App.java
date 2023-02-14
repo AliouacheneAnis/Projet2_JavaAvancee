@@ -8,7 +8,8 @@ import java.util.Scanner;
 public class App {
 
     public static void main(String[] args) {
-
+        
+        // declaration des instance 
         Bedroom myBedroom = new Bedroom("Bedroom1");
         garage myGarage = new garage("Garage1");
         Kitchen myKitchen = new Kitchen("Kitchen 1");
@@ -19,13 +20,15 @@ public class App {
         Scanner sc = new Scanner(System.in);
 
         while (choixRep != 4) {
+
             // Affichage Menu
             f.AfficherMenu();
             choixRep = sc.nextInt(); // lecture de choix de l'utilisateur
             switch (choixRep) {
                 case 1:
-                    f.MenuBedroom();
+                    f.MenuBedroom(); // afficher le menu gestion de chambre 
                     choix = sc.nextInt();
+                    //verifier la reponse d'utilisateur puis faire l'acyion selon le choix 
                     while (choix != 1 && choix != 2 && choix != 3) {
                         System.out.println("Error : Merci de Saisir un chiffre soit 1, 2 et 3");
                         System.out.println();

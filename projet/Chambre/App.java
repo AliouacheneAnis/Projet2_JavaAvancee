@@ -11,22 +11,24 @@ public class App {
         Bedroom myBedroom = new Bedroom("Bedroom1");
         garage myGarage = new garage("Garage1");
         Kitchen myKitchen = new Kitchen("Kitchen 1");
+        myBedroom.ChangerEtatClimatiseur();
+        myGarage.opendoor();
+
 
         int choix = 0, choixRep = 0;
 
         Scanner sc = new Scanner(System.in);
 
         while (choixRep != 5) {
-
+            Scanner s = new Scanner(System.in);
             // Affichage Menu
             Menu.AfficherMenu();
             choixRep = sc.nextInt(); // lecture de choix de l'utilisateur
-
+            
             switch (choixRep) {
                 case 1:
                     Menu.MenuBedroom();
-                    choix = sc.nextInt();
-                    while (choix != 1 && choix != 2) {
+                    choix = s.nextInt();
 
                         switch (choix) {
                             case 1:
@@ -39,20 +41,18 @@ public class App {
 
                             default:
                                 System.out.println("Error : Merci de Saisir un chiffre soit 1 ou 2");
-                                choix = sc.nextInt();
+                                choix = s.nextInt();
                                 break;
                         }
-                    }
                     break;
 
                 case 2:
 
                     Menu.MenuCuisine();
-                    choix = sc.nextInt();
-                    while (choix != 1 && choix != 2) {
+                    choix = s.nextInt();
                         switch (choix) {
                             case 1:
-                            myKitchen.AllumerFour();
+                                 myKitchen.AllumerFour();
                                 break;
 
                             case 2:
@@ -62,23 +62,21 @@ public class App {
                             default:
 
                                 System.out.println("Error : Merci de Saisir un chiffre soit 1 ou 2");
-                                choix = sc.nextInt();
+                                choix = s.nextInt();
                                 break;
                         }
-                    }
                     break;
 
                 case 3:
                     Menu.MenuGarage();
-                    choix = sc.nextInt();
-                    while (choix != 1 && choix != 2 && choix != 3) {
+                    choix = s.nextInt();
                         switch (choix) {
                             case 1:
                                 myGarage.OuvrirFenetre();
                                 break;
 
                             case 2:
-                                myGarage.closedoor();
+                                myGarage.opendoor();
                                 break;
 
                             case 3:
@@ -87,9 +85,8 @@ public class App {
 
                             default:
                                 System.out.println("Error : Merci de Saisir un chiffre soit 1, 2 et 3");
-                                choix = sc.nextInt();
+                                choix = s.nextInt();
                                 break;
-                        }
                     }
                     break;
 
@@ -100,6 +97,7 @@ public class App {
                 default:
                     System.out.println("Error : Merci de Saisir un chiffre saisir entre 1 et 4");
                     System.out.println();
+                    s.close();
                     break;
 
             }
